@@ -1,22 +1,24 @@
 import Post from "./post.js";
 
-class Service{
-  async create(post){
+class Service {
+  async create(post) {
     const postCreated = await Post.create(post)
     return postCreated
   }
 
-  async getAll(){
-      const posts = await Post.find();
-      return posts
+  async getAll() {
+    const posts = await Post.find();
+    return posts
   }
-  async getOne(id){
-    if(!id){
+
+  async getOne(id) {
+    if (!id) {
       throw new Error('No Id')
     }
     const soloPost = await Post.findById(id);
     return soloPost;
   }
+
   async update(post) {
     if (!post._id) {
       throw new Error('NO ID HERE')
@@ -25,12 +27,12 @@ class Service{
     return updatedPost
   }
 
-  async delete(id){
-      if(!id) {
-        throw new Error('NO ID HERE')
-      }
-      const post = await Post.findByIdAndDelete(id);
-      return post
+  async delete(id) {
+    if (!id) {
+      throw new Error('NO ID HERE')
+    }
+    const post = await Post.findByIdAndDelete(id);
+    return post
   }
 }
 
