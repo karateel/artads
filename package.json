@@ -2,11 +2,11 @@
   "name": "artads",
   "version": "1.0.0",
   "description": "",
-  "main": "main.mjs",
   "type": "module",
+  "main": "public/main.js",
   "scripts": {
-    "start": "node main.mjs",
-    "dev": "nodemon main.mjs"
+    "start": "node public/main.js",
+    "dev": "nodemon public/main.js --exec babel-node --presets babel-preset-env -r esm "
   },
   "repository": {
     "type": "git",
@@ -20,10 +20,16 @@
   },
   "homepage": "https://github.com/karateel/artads#readme",
   "dependencies": {
+    "esm": "^3.2.25",
     "express": "^4.17.1",
+    "module": "^1.2.5",
     "mongoose": "^6.0.4"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "babel-preset-env": "^1.7.0",
     "nodemon": "^2.0.12"
   }
 }

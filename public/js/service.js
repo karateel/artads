@@ -1,4 +1,4 @@
-import Post from "./post.mjs";
+import Post from "./post.js";
 
 class Service {
   async create(post) {

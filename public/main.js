@@ -1,11 +1,9 @@
 import express from "express"
 import mongoose from "mongoose";
-import router from "./public/js/router.mjs";
+import router from "./js/router.js";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import * as path from 'path';
-
-
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -15,12 +13,15 @@ const DB_URL = `mongodb+srv://user:user@cluster0.zimhd.mongodb.net/myFirstDataba
 
 const app = express();
 
-app.get('*', function (req, res) {
-  res.sendFile(__dirname + '/public/index.html');
+app.disable('etag')
+app.use('/', express.static('public'));
+
+app.get('*', (req,res,next) => {
+  const indexFile = path.resolve(__dirname + '/public/index.html');
+  res.sendFile(indexFile);
 });
 
-// app.use(express.static(__dirname + '/artads/public'));
-app.use('/static', express.static(__dirname + '/public'));
+
 app.use('/', router)
 app.use(express.json())
 
