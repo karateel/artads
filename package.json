@@ -2,11 +2,11 @@
   "name": "artads",
   "version": "1.0.0",
   "description": "",
-  "main": "back-end/index.js",
+  "main": "index.mjs",
   "type": "module",
   "scripts": {
-    "start": "node back-end/index.js",
-    "dev": "nodemon back-end/index.js"
+    "start": "node index.mjs",
+    "dev": "nodemon index.mjs"
   },
   "repository": {
     "type": "git",
