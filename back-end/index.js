@@ -9,12 +9,13 @@ const app = express();
 
 app.use(express.json())
 app.use('/api', router)
+app.use(express.static('front-end'));
 
 app.post('/',)
 
 async function startApp() {
   try {
-    await mongoose.connect(DB_URL, {useUnifiedTopology: true, useNewUrlParser: true})
+    await mongoose.connect(DB_URL  )
     app.listen(PORT, () => console.log('server 5000'))
   } catch (e) {
     console.log(e)
